@@ -18,6 +18,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
     ];
@@ -40,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function accounts(){
+        return $this->hasMany(Account::class);
+    }
+
+    public function transfers1(){
+        return $this->hasManyThrough(Transfer::class, Account::class, 'user_id','account_id_from' );
+    }
+    public function transfers2(){
+        return $this->hasManyThrough(Transfer::class, Account::class, 'user_id','account_id_to' );
+    }
 }

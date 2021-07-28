@@ -1,7 +1,8 @@
 @extends('main')
-
 @section('content')
-<!-- <div class="container">
+<div class="site-blocks-cover overlay bg-image no-repeat center center fixed" style="background-image: url('images/hero_2.jpg')" data-aos="fade" id="home-section">
+
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -65,9 +66,13 @@
                             </div>
                         </div>
                     </form>
+                    <div class="mt-3">{{ __('Don\'t have an account? Register one!') }}</div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
+</div>
+
 @endsection
+

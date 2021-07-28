@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TransferController;
+use App\Http\Controllers\AccountController;
+//use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,17 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [AdminController::class, 'index']);
-Route::get('/admin', [AdminController::class, 'admin']);
-Route::get('/withdraw', [AdminController::class, 'withdraw']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/account', [HomeController::class, 'account']);
+Route::get('/report', [HomeController::class, 'report']);
+Route::get('/transfer', [HomeController::class, 'transfer']);
+Route::get('/transferBetween', [HomeController::class, 'transferBetween']);
+Route::post('/records', [HomeController::class, 'records']);
+Route::post('/store', [TransferController::class, 'store']);
+Route::post('/store1', [TransferController::class, 'store1']);
+Route::get('/error', [TransferController::class, 'error']);
+Route::get('/cancel/{id}', [TransferController::class, 'cancel']);
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
